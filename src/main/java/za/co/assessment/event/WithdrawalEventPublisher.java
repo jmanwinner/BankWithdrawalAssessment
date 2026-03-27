@@ -12,13 +12,11 @@ import software.amazon.awssdk.services.sns.model.PublishRequest;
 public class WithdrawalEventPublisher {
 
     private final SnsClient snsClient;
-    private final ObjectMapper objectMapper;
     @Value("${sns.topic.arn:default-topic-arn}")
     private String topicArn;
 
     public WithdrawalEventPublisher(SnsClient snsClient) {
         this.snsClient = snsClient;
-        this.objectMapper = new ObjectMapper();
     }
 
     public void publish(WithdrawalEvent event) {
